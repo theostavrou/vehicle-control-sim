@@ -129,6 +129,30 @@ vehicle_sim/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/build
 .PHONY : vehicle_sim/fast
 
+src/Vehicle.o: src/Vehicle.cpp.o
+.PHONY : src/Vehicle.o
+
+# target to build an object file
+src/Vehicle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/src/Vehicle.cpp.o
+.PHONY : src/Vehicle.cpp.o
+
+src/Vehicle.i: src/Vehicle.cpp.i
+.PHONY : src/Vehicle.i
+
+# target to preprocess a source file
+src/Vehicle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/src/Vehicle.cpp.i
+.PHONY : src/Vehicle.cpp.i
+
+src/Vehicle.s: src/Vehicle.cpp.s
+.PHONY : src/Vehicle.s
+
+# target to generate assembly for a file
+src/Vehicle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/vehicle_sim.dir/build.make CMakeFiles/vehicle_sim.dir/src/Vehicle.cpp.s
+.PHONY : src/Vehicle.cpp.s
+
 src/main.o: src/main.cpp.o
 .PHONY : src/main.o
 
@@ -162,6 +186,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... vehicle_sim"
+	@echo "... src/Vehicle.o"
+	@echo "... src/Vehicle.i"
+	@echo "... src/Vehicle.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

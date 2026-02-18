@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/vehicle_sim.dir/src/Vehicle.cpp.o"
+  "CMakeFiles/vehicle_sim.dir/src/Vehicle.cpp.o.d"
   "CMakeFiles/vehicle_sim.dir/src/main.cpp.o"
   "CMakeFiles/vehicle_sim.dir/src/main.cpp.o.d"
   "vehicle_sim"

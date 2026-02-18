@@ -6,4 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(vehicle_sim
 	src/main.cpp
+	src/Vehicle.cpp
 )
+
+target_include_directories(vehicle_sim PRIVATE include)
