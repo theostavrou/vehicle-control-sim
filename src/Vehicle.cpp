@@ -1,7 +1,10 @@
 #include "Vehicle.h"
 
-Vehicle::Vehicle(double mass, double max_force)
-    : mass_(mass), velocity_(0.0), max_force_(max_force)
+Vehicle::Vehicle(double mass, double max_force, double drag_coeff)
+    : mass_(mass), 
+    velocity_(0.0), 
+    max_force_(max_force), 
+    drag_coeff_(drag_coeff)
 {
 }
 
@@ -13,8 +16,11 @@ void Vehicle::applyThrottle(double throttle, double dt)
     } else if (throttle > 1.0) {
         throttle = 1.0;
     }
-    double force = throttle * max_force_;
-    double acceleration = force / mass_;
+    double engine_force = throttle * max_force_;
+    double drag_force = drag_coeff_ * velocity_;
+    double net_force = engine_force - drag_force;
+    
+    double acceleration = net_force / mass_;
     velocity_ += acceleration * dt;
 }
 
