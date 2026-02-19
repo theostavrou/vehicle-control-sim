@@ -1,3 +1,0 @@
-/Users/theostavrou/vehicle-control-sim/build/CMakeFiles/vehicle_sim.dir
-/Users/theostavrou/vehicle-control-sim/build/CMakeFiles/edit_cache.dir
-/Users/theostavrou/vehicle-control-sim/build/CMakeFiles/rebuild_cache.dir

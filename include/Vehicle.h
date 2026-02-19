@@ -2,13 +2,14 @@
 
 class Vehicle {
 public:
-    Vehicle(double mass);
+    Vehicle(double mass, double max_force);
 
-    void applyForce(double force, double dt);
+    void applyThrottle(double throttle, double dt);
 
     double getVelocity() const;
 
 private:
     double mass_;
     double velocity_;
+    double max_force_;
 };

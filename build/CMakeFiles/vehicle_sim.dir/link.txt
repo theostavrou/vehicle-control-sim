@@ -1,1 +1,0 @@
-/usr/bin/c++ -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/vehicle_sim.dir/src/main.cpp.o CMakeFiles/vehicle_sim.dir/src/Vehicle.cpp.o -o vehicle_sim
