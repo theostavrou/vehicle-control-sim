@@ -2,7 +2,7 @@
 
 class Controller {
 public:
-    Controller(double kp);
+    Controller(double kp, double ki);
 
     double computeThrottle(double target_velocity,
                             double current_velocity,
@@ -10,4 +10,6 @@ public:
                         
 private:
     double kp_;
+    double ki_;
+    double integral_error_;
 };
