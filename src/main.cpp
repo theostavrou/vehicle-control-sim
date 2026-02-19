@@ -1,11 +1,14 @@
 #include <iostream>
 #include "Vehicle.h"
 #include "SimulationEngine.h"
+#include "Controller.h"
 
 int main() {
 
     Vehicle car(1000.0, 4000.0, 200.0); // mass (kg), max force (N), drag coefficient (N / m/s)
-    SimulationEngine sim(car, 0.1, 100);
+    Controller controller(0.05);
+
+    SimulationEngine sim(car, controller, 1, 100, 15.0);
 
     sim.run();
 

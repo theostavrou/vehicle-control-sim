@@ -8,6 +8,7 @@ add_executable(vehicle_sim
 	src/main.cpp
 	src/Vehicle.cpp
 	src/SimulationEngine.cpp
+	src/Controller.cpp
 )
 
 target_include_directories(vehicle_sim PRIVATE include)
