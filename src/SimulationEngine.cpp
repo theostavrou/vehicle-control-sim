@@ -1,5 +1,6 @@
 #include "SimulationEngine.h"
 #include <iostream>
+#include <fstream>
 
 SimulationEngine::SimulationEngine(Vehicle& vehicle,
                                     Controller& controller, 
@@ -16,6 +17,13 @@ SimulationEngine::SimulationEngine(Vehicle& vehicle,
 
 void SimulationEngine::run()
 {
+
+    std::ofstream log_file("simulation_log.csv");
+
+    log_file << "time,velocity,throttle\n";
+
+    double time = 0.0;
+
     for (int i = 0; i <steps_; ++i) {
 
         double current_velocity = vehicle_.getVelocity();
@@ -27,9 +35,12 @@ void SimulationEngine::run()
 
             vehicle_.applyThrottle(throttle, dt_);
 
-        std::cout << "Step " << i
-                  << " | v = " << current_velocity
-                  << " | throttle = " << throttle
-                  << std::endl;
+        log_file << time << ","
+                 << current_velocity << ","
+                 << throttle << "\n";
+
+        time += dt_;
     }
+
+    log_file.close();
 }
