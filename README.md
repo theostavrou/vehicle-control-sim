@@ -1,21 +1,48 @@
-## Vehicle Control Simulation
+# Vehicle Control Simulation (C++)
 
-This project is a discrete time vehicle simulation written in C++.
+## Overview
+This project simulates a 1D vehicle model with aerodynamic drag and implements a PI controller to regulate velocity to a target setpoint.
 
-It demonstrates:
-- vehicle dynamics with linear drag
-- limitations of open-loop control
-- proportional control and steady-state error
-- proportional-integral control for velocity tracking
-- anti-windup to limit overshoot
+The system demonstrates:
+- Vehicle dynamics modelling
+- Closed-loop control implementation
+- Integral windup handling
+- Parameter tuning
+- Data logging and response visualisation
 
-The project was built incrementally to show how control requirements emerge naturally from physical system behaviour.
+## System Architecture
+### Vehicle
+Physical dynamics (force, drag, acceleration)
 
-## Current Bahviour
-- PI control reaches the target velocity
-- overshoot is limited to around 1.9%
-- results are logged to a .csv file
+### Controller
+PI control logic to compute throttle input based on error
 
-## Planned Improvements
-- Plotting using python (matplotlib)
-- Optional PID extension
+### SimulationEngine
+Orchestrates simulation loop and integrates the vehicle and controller
+
+### Logger
+Handles CSV output for post simulation analysis
+
+## Results
+### Velocity Response
+![Velocity Plot](velocity_plot.png)
+
+### Throttle Response
+![Throttle Plot](throttle_plot.png)
+
+## Key Observations
+- Proportional control alone produced steady-state error due to drag
+- Integral action eliminated steady-state error by accumulating persistent velocity error
+- Conditional integration was implemented to prevent integral windup during actuator saturation
+- Controller gains were tuned to balance overshoot and settling time
+- At steady state, throttle converges to equilibrium force required to balance drag
+
+## How to Run
+mkdir build
+cd build
+cmake ..
+make
+./vehicle_sim
+
+To generate python plots:
+python3 plot.py
