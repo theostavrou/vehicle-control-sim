@@ -10,7 +10,7 @@ The system demonstrates:
 - Parameter tuning
 - Data logging and response visualisation
 
-## System Architecture
+## System Architecture
 ### Vehicle
 Physical dynamics (force, drag, acceleration)
 
@@ -20,7 +20,7 @@ PI control logic to compute throttle input based on error
 ### SimulationEngine
 Orchestrates simulation loop and integrates the vehicle and controller
 
-### Logger
+### Logger
 Handles CSV output for post simulation analysis
 
 ## Results
@@ -38,11 +38,16 @@ Handles CSV output for post simulation analysis
 - At steady state, throttle converges to equilibrium force required to balance drag
 
 ## How to Run
+``` 
 mkdir build
 cd build
 cmake ..
 make
 ./vehicle_sim
+```
 
 To generate python plots:
+``` 
+bash
 python3 plot.py
+```
