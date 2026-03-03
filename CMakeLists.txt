@@ -9,6 +9,7 @@ add_executable(vehicle_sim
 	src/Vehicle.cpp
 	src/SimulationEngine.cpp
 	src/Controller.cpp
+	src/Logger.cpp
 )
 
 target_include_directories(vehicle_sim PRIVATE include)

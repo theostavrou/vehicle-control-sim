@@ -4,11 +4,13 @@
 
 SimulationEngine::SimulationEngine(Vehicle& vehicle,
                                     Controller& controller, 
+                                    Logger& logger,
                                     double dt, 
                                     int steps,
                                     double target_velocity)
     : vehicle_(vehicle), 
         controller_(controller),
+        logger_(logger),
         dt_(dt), 
         steps_(steps),
         target_velocity_(target_velocity)
@@ -18,9 +20,7 @@ SimulationEngine::SimulationEngine(Vehicle& vehicle,
 void SimulationEngine::run()
 {
 
-    std::ofstream log_file("simulation_log.csv");
-
-    log_file << "time,velocity,throttle\n";
+    logger_.writeHeader();
 
     double time = 0.0;
 
@@ -35,12 +35,8 @@ void SimulationEngine::run()
 
             vehicle_.applyThrottle(throttle, dt_);
 
-        log_file << time << ","
-                 << current_velocity << ","
-                 << throttle << "\n";
+        logger_.log(time, current_velocity, throttle);
 
         time += dt_;
     }
-
-    log_file.close();
 }
